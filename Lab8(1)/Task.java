@@ -23,6 +23,24 @@ public class Task {
     public Task copy(Task task){
         return(new Task(this.id,this.title));
     }
+    public boolean getIsCompleted(){
+        return this.isCompleted;
+    }
+    public String getTitle(){
+        return this.title;
+    }
+    public String getId(){
+        return this.id;
+    }
+    public void setIsCompleted(boolean isCompleted){
+        this.isCompleted = isCompleted;
+    }
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(id, title, isCompleted);
