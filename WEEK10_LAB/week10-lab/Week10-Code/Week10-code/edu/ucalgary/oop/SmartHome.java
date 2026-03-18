@@ -13,6 +13,9 @@ public class SmartHome {
         // Student to implement
         // Initialize this.devices with the provided devices list
         // Consider: this.devices = new ArrayList<>(devices);
+
+        this.devices = devices;
+
     }
     
     // TODO: Implement setDeviceState functionality
@@ -24,8 +27,15 @@ public class SmartHome {
         // Check if devices contains the provided device
         // If not, throw new IllegalArgumentException("Device is not registered in this SmartHome.")
         // Otherwise, call device.setState(state)
+        if (! this.devices.contains(device)) {
+            throw new IllegalArgumentException("Device is not registered in this SmartHome");
+        }
+        else {
+            device.setState(state);
+        }
+
     }
-    
+
     // TODO: Implement sendMessage functionality
     // Should print "SmartHome: Sending message - " + message
     // Should call device.update(message) for each device in the devices list
@@ -33,5 +43,9 @@ public class SmartHome {
         // Student to implement
         // Print: System.out.println("SmartHome: Sending message - " + message);
         // Loop through devices and call device.update(message) for each one
+        System.out.println("SmartHome: Sending message - " + message);
+        for (SmartDevice<?> device : devices) {
+            device.update(message);
+        }
     }
 }
